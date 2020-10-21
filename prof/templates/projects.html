@@ -1,0 +1,164 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Projects</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static '/images/me.png' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            background: linear-gradient(-45deg, #2e8b57, #2e8b57, #201F1F, #201F1F, #201F1F);
+            /* Colors: RED - 6D0000
+               PINK - 350410
+    */
+            background-size: 400% 400%;
+            animation: gradient 3.5s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h4 {
+            color: white
+        }
+
+        a {
+            color: #2cbcc3;
+            text-decoration: none;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar" href="{% url 'home' %}">
+                    <h1>Projects</h1>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+                <li data-target="#myCarousel" data-slide-to="5"></li>
+                <li data-target="#myCarousel" data-slide-to="6"></li>
+                <li data-target="#myCarousel" data-slide-to="7"></li>
+                <li data-target="#myCarousel" data-slide-to="8"></li>
+                <li data-target="#myCarousel" data-slide-to="9"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <img src="{% static '/images/club.png' %}" alt="Sports Club Management System" style="width: 100%;">
+                    <div class="carousel-caption">
+                        <h3>Sports Club Management System(Java)</h3>
+
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{% static '/images/pass.png' %}" alt="Password Generator" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Password Generator(Java)</h3>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="{% static '/images/age.png' %}" alt="Age Calculator" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Age Calculator(Java)</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static '/images/aut.png' %}" alt="Authentication System" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Authentication System(Django)</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static '/images/port.png' %}" alt="Personal Portfolio" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Personal Portfolio(Django)</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static '/images/gate.png' %}" alt="Gate Pass Management System" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Gate Pass Management System(Django)</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static '/images/id.png' %}" alt="ID Card App" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>ID Card App(Flutter)</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static '/images/wrld.png' %}" alt="World Time App" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>World Time App(Flutter)</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static '/images/spr.png' %}" alt="Super Market Billing System" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Super Market Billing System(C++)</h3>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="{% static '/images/br.png' %}" alt="Brick Breaker Game" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Brick Breaker Game(Java)</h3>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

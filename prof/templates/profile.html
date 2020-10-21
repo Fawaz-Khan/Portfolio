@@ -1,0 +1,553 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static '/images/me.png' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style type="text/css">
+        body {
+            background: linear-gradient(-45deg, #0C683B, #0C683B, #201F1F, #201F1F, #201F1F);
+            /* Colors: RED - 6D0000
+               PINK - 350410
+               Green - 0C683B
+    */
+            background-size: 400% 400%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        h4,
+        h5 {
+            color: white
+        }
+
+        p {
+            color: white;
+        }
+
+        /*        .card {
+            width: 100px;
+            height: 150px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners 
+}
+*/
+
+        /* Add rounded corners to the top left and the top right corner of the image */
+        /*img {
+  border-radius: 5px 5px 0 0;
+}
+*/
+
+        /* The grid: Four equal columns that floats next to each other */
+
+        /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+        .flip-card {
+            background-color: transparent;
+            width: 190px;
+            height: 152px;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px;
+            /* Remove this if you don't want the 3D effect */
+        }
+
+        /* This container is needed to position the front and back side */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        /* Do an horizontal flip when you move the mouse over the flip box container */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Position the front and back side */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            /* Safari */
+            backface-visibility: hidden;
+        }
+
+        /* Style the front side (fallback if image is missing) */
+        .flip-card-front {
+            background-color: transparent;
+            color: black;
+        }
+
+        /* Style the back side */
+        .flip-card-back {
+            background-color: #201F1F;
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .column {
+            float: left;
+            width: 18%;
+            padding-left: 90px;
+            padding-bottom: 20px;
+        }
+
+        /* Style the images inside the grid */
+        .column img {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+
+        .column img:hover {
+            opacity: 1;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .dropdown-menu {
+            background-color: #17a2b8;
+        }
+
+        /*Contatct Me*/
+        .social-menu ul {
+            position: absolute;
+            top: -100%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .social-menu ul li {
+            list-style: none;
+            margin: 0 10px;
+        }
+
+        .social-menu ul li .fa {
+            color: #000000;
+            font-size: 25px;
+            line-height: 50px;
+            transition: .3s;
+        }
+
+        .social-menu ul li .fa:hover {
+            color: #ffffff;
+        }
+
+        .social-menu ul li a {
+            position: relative;
+            display: block;
+            width: 87px;
+            height: 87px;
+            border-radius: 100%;
+            background-color: white;
+            text-align: center;
+            transition: 0.3s;
+            transform: translate(0, 0px);
+            box-shadow: 0px 9px 5px rgba(114, 82, 255);
+        }
+
+        .social-menu ul li a:hover {
+            transform: rotate(0deg) skew(0deg) translate(0, -25px);
+        }
+
+        .social-menu ul li:nth-child(1) a:hover {
+            background-image: linear-gradient(orange 70%, yellow);
+        }
+
+        .social-menu ul li:nth-child(2) a:hover {
+            background-image: linear-gradient(skyblue 70%, white);
+        }
+
+        .social-menu ul li:nth-child(3) a:hover {
+            background-image: linear-gradient(blue 70%, white);
+        }
+
+        .social-menu ul li:nth-child(4) a:hover {
+            background-image: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .social-menu ul li:nth-child(5) a:hover {
+            background-image: linear-gradient(red 70%, white);
+        }
+
+        .social-menu ul li:nth-child(6) a:hover {
+            background-image: linear-gradient(purple 70%, white);
+        }
+
+    </style>
+
+
+    {% if title %}
+    <title>Portfolio - {{ title }}</title>
+    {% else %}
+    <title>Portfolio</title>
+    {% endif %}
+
+</head>
+
+<body>
+    <nav id="navbar-example2" class="navbar navbar-success bg-0E5E36">
+        <a class="navbar-brand text-light font-weight-bold" href="{% url 'home' %}">
+            <h4>Fawaz Arshed Khan</h4>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a class="btn btn-outline-info" href="#q">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-info" href="#w">Experience</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-info" href="#e">Skills</a>
+            </li>
+            <li class="nav-item">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        Work
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{% url 'projects' %}">
+                            <h6 style="color: black;">Projects</h6>
+                        </a>
+                        <a class="dropdown-item" href="{% url 'certification' %}">
+                            <h6 style="color: black;">Certification</h6>
+                        </a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-outline-info" href="#r">Contact Me</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <div class="row text-center pd-5 my-5">
+            <div class="col-12 col-md-6 py-5">
+                <img class="img-thumbnail w-50" <img src="{% static '/images/me1.jpg' %}" alt="Fawaz" />
+            </div>
+            <div class="col-12 col-md-5 py-5">
+                <div class="font-weight-light" style="font-size: 50px;">
+                    <span class="text-info">Hi <h1 class="font-weight-light">I am Fawaz</h1> </span>
+                </div>
+                <h5 class="font-weight-light">I'm a major Tech Enthusiast. I like spending my time learning about CyberSec,Artificial Intelligence,Web Dev and Data. </h5>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+            <div class="row text-center">
+                <div class="col-12 py-3">
+                    <h4 id="q"><span class="text-info py-3">About Me</span></h4>
+                    <p style="font-size: 18px">I am currently pursuing my BTech from CBIT in the Information Technology field. I am a major Tech Enthusiast. I love spending my time learning about CyberSec, Artificial Intelligence, Web Dev and Cloud Computing. In my free time I'm either working out, cooking food, perfecting my skills or writing articles on technology and mental health.
+                    </p>
+                    <div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-12 py-3">
+                        <h4 id="w"><span class="text-info py-3">Organisation Experience</span></h4>
+                        <p style="font-size: 18px">⦿ Web Development Intern with <img src="{% static '/images/cosc.png' %}" style="width: 30px; height: 30px;"> COSC Club CBIT for the project Gate Pass Management System.</p>
+                        <br>
+                        <p style="font-size: 18px">⦿ Currently working for a company TechMax <img src="{% static '/images/tmax.png' %}" style="width: 30px; height: 30px;"> for its Web Development.
+                        </p>
+                    </div>
+                    <div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-12 py-3">
+                        <h4 id="e"><span class="text-info py-3">Skills</span></h4>
+                        <p>
+                            <div class="row">
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/dj.png' %}" alt="Avatar" style="width:150px;height:150px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Django</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/html.png' %}" alt="Avatar" style="padding-top: 20px;  width:150px; height:140px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>HTML5</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/css.png' %}" alt="Avatar" style="padding-top: 13px;  width:150px; height:140px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>CSS3</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/cs.png' %}" alt="Avatar" style="width:185px;height:150px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>CyberSecurity</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/net.png' %}" alt="Avatar" style="width:195px;height:165px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Networking</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/py.png' %}" alt="Avatar" style="padding-top:15px; width:148px;height:142px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Python</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/Java.png' %}" alt="Avatar" style="width:199px;height:150px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Java</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/flutter.png' %}" alt="Avatar" style="width:170px;height:150px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Flutter</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/sql.png' %}" alt="Avatar" style="width:185px;height:190px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>MySQL</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/ai.png' %}" alt="Avatar" style="width:170px;height:150px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Artificial Intelligence</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/ml.png' %}" alt="Avatar" style="padding-top:15px; width:210px;height:150px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Machine Learning</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/dl.png' %}" alt="Avatar" style="width:200px;height:150px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Deep Learning</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/OS.png' %}" alt="Avatar" style="width:160px;height:120px;padding-top: 10px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Operating Systems</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/da.png' %}" alt="Avatar" style="width:128px;height:140px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Data Analysis</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="column">
+                                    <div class="flip-card">
+                                        <div class="flip-card-inner">
+                                            <div class="flip-card-front">
+                                                <img src="{% static '/images/dgm.png' %}" alt="Avatar" style="width:200px;height:120px;">
+                                            </div>
+                                            <div class="flip-card-back">
+                                                <h5>Digital Marketing</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </p>
+                        <div>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                        <!--                   <h4 id="one">one</h4>
+                    <p>...</p>
+                    <h4 id="two">two</h4>
+                    <p>...</p>
+                    <h4 id="three">three</h4>
+                    <p>...</p>
+-->
+                    </div>
+
+
+                    <!-- Optional JavaScript -->
+                    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+                    <footer>
+                        <div class="container-fluid text-center" style="background-color:black;">
+                            <div class="row pt-1">
+                                <div class="col-12 py-3">
+                                    <h2 id="r" ; class="text-light">Connect with me</h2>
+                                    <a class="btn btn-outline-info btn-lg" href="{% url 'connect' %}">Let's talk</a>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-4 py-3">
+                                </div>
+                                <div class="col-12 col-md-4 text-light py-3 text-center">
+                                    <p>Feel free to contact me at any time :)</p>
+                                    <p> <img src="{% static '/images/y.png' %}" alt="Avatar" style="width:25px;height:25px;"> fawazzk22@yahoo.com</p>
+                                    <p> <img src="{% static '/images/g.png' %}" alt="Avatar" style="width:25px;height:25px;"> fawazzk22@gmail.com</p>
+                                </div>
+                            </div>
+                            <div>
+                                <br>
+                            </div>
+                            <div>
+                                <br>
+                                <br>
+                            </div>
+                            <div class="col-12 py-3">
+                                <div class="social-menu">
+                                    <ul>
+                                        <li><a href="https://github.com/Fawaz-Khan"><i class="fa fa-github"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/in/fawaz-a-khan/"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="https://www.instagram.com/?hl=en"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a href="https://www.google.com/intl/en-GB/gmail/about/#"><i class="fa fa-envelope"></i></a></li>
+                                        <li><a href="https://login.yahoo.com/?.src=ym&.lang=en-IN&.intl=in&.done=https%3A%2F%2Fin.mail.yahoo.com%2Fd"><i class="fa fa-yahoo"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <footer style="color: #808080">&copy; Fawaz Arshed Khan Copyright 2020</footer>
+                    </footer>
+</body>
+
+</html>
