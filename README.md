@@ -1,2 +1,2 @@
 # Portfolio
-Portfolio using Django.
+Portfolio using Django(Python Web Framework).
